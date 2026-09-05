@@ -3,6 +3,12 @@
 A [Pi](https://pi.dev) package that gives vision-capable models a small,
 reliable toolset for controlling Apple's **iPhone Mirroring** app.
 
+## Demo
+
+[![Pi controlling iPhone Mirroring](docs/demo.gif)](docs/demo.mp4)
+
+_Click the demo to open the accelerated MP4._
+
 ![Capabilities added around a vision-capable LLM](docs/architecture.png)
 
 ## What it adds
