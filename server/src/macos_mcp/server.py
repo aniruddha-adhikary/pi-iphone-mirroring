@@ -122,7 +122,9 @@ def _type_text(mac: MacOS, text: str) -> None:
     try:
         time.sleep(0.4)
         _hid_command(9)  # V
-        time.sleep(0.5)
+        # iPhone Mirroring may consume the pasteboard asynchronously under load.
+        # Keep the Unicode payload available until the remote paste completes.
+        time.sleep(1.2)
     finally:
         pasteboard.clearContents()
         if previous is not None:
@@ -473,7 +475,7 @@ def replace_at_iphone(x: Coord, y: Coord, text: str, submit: bool = False) -> li
 
 @server.tool()
 def type_iphone(text: str) -> list:
-    """Type into the focused iPhone field and return the resulting screenshot."""
+    """Type exact text, including Chinese, Bengali, and other Unicode, then verify."""
     with _lock:
         mac = _session()
         _fresh_frame(mac, activate=True)
