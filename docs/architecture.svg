@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Six building blocks between Gemma and iPhone Mirroring</title>
+  <desc id="desc">A building-block diagram matching six computer-use limitations to six contributions in the Pi iPhone Mirroring harness.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-30%" width="140%" height="170%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#1e293b" flood-opacity=".18"/>
+    </filter>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto">
+      <path d="M0 0L0 6L9 3Z" fill="#64748b"/>
+    </marker>
+    <style>
+      text { font-family: Inter, "SF Pro Display", "Helvetica Neue", Arial, sans-serif; }
+      .headline { fill:#0f172a; font-size:38px; font-weight:800; letter-spacing:-.8px; }
+      .subhead { fill:#64748b; font-size:18px; font-weight:500; }
+      .section { fill:#64748b; font-size:13px; font-weight:800; letter-spacing:2px; }
+      .gap-title { fill:#1e293b; font-size:16px; font-weight:720; }
+      .gap-body { fill:#64748b; font-size:13px; font-weight:500; }
+      .brick-kicker { fill:#fff; font-size:11px; font-weight:800; letter-spacing:1.3px; opacity:.82; }
+      .brick-title { fill:#fff; font-size:17px; font-weight:780; }
+      .brick-body { fill:#fff; font-size:12.5px; font-weight:520; opacity:.9; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="630" fill="#f8fafc"/>
+  <path d="M0 0H1200V630H0Z" fill="#f8fafc"/>
+  <circle cx="1080" cy="65" r="165" fill="#dbeafe" opacity=".45"/>
+  <circle cx="1150" cy="610" r="210" fill="#ede9fe" opacity=".42"/>
+
+  <text x="56" y="58" class="headline">The missing blocks in visual iPhone control</text>
+  <text x="56" y="88" class="subhead">We turned a generic computer-use loop into a focused, verifiable iPhone harness.</text>
+
+  <!-- Left: limitations -->
+  <text x="58" y="132" class="section">THE GAPS</text>
+  <rect x="44" y="146" width="362" height="415" rx="20" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+
+  <g transform="translate(66 168)">
+    <circle cx="18" cy="20" r="18" fill="#f1f5f9"/><text x="18" y="25" text-anchor="middle" fill="#64748b" font-size="12" font-weight="800">01</text>
+    <text x="48" y="17" class="gap-title">Generic tools are too broad</text>
+    <text x="48" y="38" class="gap-body">The model must reason about every app.</text>
+  </g>
+  <line x1="66" y1="226" x2="384" y2="226" stroke="#e2e8f0"/>
+  <g transform="translate(66 237)">
+    <circle cx="18" cy="20" r="18" fill="#f1f5f9"/><text x="18" y="25" text-anchor="middle" fill="#64748b" font-size="12" font-weight="800">02</text>
+    <text x="48" y="17" class="gap-title">Vision coordinates drift</text>
+    <text x="48" y="38" class="gap-body">Raw pixels do not match VLM grounding.</text>
+  </g>
+  <line x1="66" y1="295" x2="384" y2="295" stroke="#e2e8f0"/>
+  <g transform="translate(66 306)">
+    <circle cx="18" cy="20" r="18" fill="#f1f5f9"/><text x="18" y="25" text-anchor="middle" fill="#64748b" font-size="12" font-weight="800">03</text>
+    <text x="48" y="17" class="gap-title">The model accepts one image</text>
+    <text x="48" y="38" class="gap-body">Old screenshots break later requests.</text>
+  </g>
+  <line x1="66" y1="364" x2="384" y2="364" stroke="#e2e8f0"/>
+  <g transform="translate(66 375)">
+    <circle cx="18" cy="20" r="18" fill="#f1f5f9"/><text x="18" y="25" text-anchor="middle" fill="#64748b" font-size="12" font-weight="800">04</text>
+    <text x="48" y="17" class="gap-title">Mirroring rejects normal input</text>
+    <text x="48" y="38" class="gap-body">Clicks and wheel events need native paths.</text>
+  </g>
+  <line x1="66" y1="433" x2="384" y2="433" stroke="#e2e8f0"/>
+  <g transform="translate(66 444)">
+    <circle cx="18" cy="20" r="18" fill="#f1f5f9"/><text x="18" y="25" text-anchor="middle" fill="#64748b" font-size="12" font-weight="800">05</text>
+    <text x="48" y="17" class="gap-title">Synthetic Unicode becomes garbage</text>
+    <text x="48" y="38" class="gap-body">Chinese text arrives as Latin keystrokes.</text>
+  </g>
+  <line x1="66" y1="502" x2="384" y2="502" stroke="#e2e8f0"/>
+  <g transform="translate(66 513)">
+    <circle cx="18" cy="20" r="18" fill="#f1f5f9"/><text x="18" y="25" text-anchor="middle" fill="#64748b" font-size="12" font-weight="800">06</text>
+    <text x="48" y="17" class="gap-title">A tool result is not proof</text>
+    <text x="48" y="38" class="gap-body">The model can claim success after a miss.</text>
+  </g>
+
+  <!-- Mapping arrow -->
+  <path d="M422 354H470" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="446" y="338" text-anchor="middle" fill="#64748b" font-size="12" font-weight="700">PLUG</text>
+  <text x="446" y="374" text-anchor="middle" fill="#64748b" font-size="12" font-weight="700">THE GAPS</text>
+
+  <!-- Right: Pi assembly -->
+  <rect x="486" y="115" width="670" height="476" rx="25" fill="#eff6ff" stroke="#2563eb" stroke-width="2.5"/>
+  <rect x="510" y="100" width="188" height="34" rx="10" fill="#2563eb"/>
+  <text x="604" y="123" text-anchor="middle" fill="#fff" font-size="16" font-weight="800">PI + OUR HARNESS</text>
+
+  <!-- Gemma top block -->
+  <g filter="url(#shadow)">
+    <rect x="675" y="141" width="292" height="62" rx="10" fill="#6d28d9"/>
+    <circle cx="711" cy="141" r="11" fill="#8b5cf6"/><circle cx="785" cy="141" r="11" fill="#8b5cf6"/><circle cx="857" cy="141" r="11" fill="#8b5cf6"/><circle cx="931" cy="141" r="11" fill="#8b5cf6"/>
+    <text x="821" y="168" text-anchor="middle" fill="#fff" font-size="20" font-weight="800">GEMMA 4 E4B</text>
+    <text x="821" y="188" text-anchor="middle" fill="#ddd6fe" font-size="12.5" font-weight="600">local vision-language model · BaseRT</text>
+  </g>
+
+  <path d="M821 204V226" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Six contribution bricks -->
+  <g filter="url(#shadow)">
+    <rect x="523" y="233" width="292" height="82" rx="8" fill="#0284c7"/>
+    <circle cx="557" cy="233" r="10" fill="#38bdf8"/><circle cx="625" cy="233" r="10" fill="#38bdf8"/><circle cx="693" cy="233" r="10" fill="#38bdf8"/><circle cx="761" cy="233" r="10" fill="#38bdf8"/>
+    <text x="545" y="260" class="brick-kicker">SCOPE</text><text x="545" y="283" class="brick-title">iPhone-only tools</text><text x="545" y="302" class="brick-body">Six actions. No app-selection ambiguity.</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="827" y="233" width="292" height="82" rx="8" fill="#0891b2"/>
+    <circle cx="861" cy="233" r="10" fill="#22d3ee"/><circle cx="929" cy="233" r="10" fill="#22d3ee"/><circle cx="997" cy="233" r="10" fill="#22d3ee"/><circle cx="1065" cy="233" r="10" fill="#22d3ee"/>
+    <text x="849" y="260" class="brick-kicker">GROUND</text><text x="849" y="283" class="brick-title">0–1000 visual grid</text><text x="849" y="302" class="brick-body">Stable coordinates with hard boundaries.</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="523" y="334" width="292" height="82" rx="8" fill="#059669"/>
+    <circle cx="557" cy="334" r="10" fill="#34d399"/><circle cx="625" cy="334" r="10" fill="#34d399"/><circle cx="693" cy="334" r="10" fill="#34d399"/><circle cx="761" cy="334" r="10" fill="#34d399"/>
+    <text x="545" y="361" class="brick-kicker">CONTEXT</text><text x="545" y="384" class="brick-title">One-image window</text><text x="545" y="403" class="brick-body">Latest frame sent; full history retained.</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="827" y="334" width="292" height="82" rx="8" fill="#ea580c"/>
+    <circle cx="861" cy="334" r="10" fill="#fb923c"/><circle cx="929" cy="334" r="10" fill="#fb923c"/><circle cx="997" cy="334" r="10" fill="#fb923c"/><circle cx="1065" cy="334" r="10" fill="#fb923c"/>
+    <text x="849" y="361" class="brick-kicker">INPUT</text><text x="849" y="384" class="brick-title">Native HID gestures</text><text x="849" y="403" class="brick-body">Quartz tap + phased session scrolling.</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="523" y="435" width="292" height="82" rx="8" fill="#db2777"/>
+    <circle cx="557" cy="435" r="10" fill="#f472b6"/><circle cx="625" cy="435" r="10" fill="#f472b6"/><circle cx="693" cy="435" r="10" fill="#f472b6"/><circle cx="761" cy="435" r="10" fill="#f472b6"/>
+    <text x="545" y="462" class="brick-kicker">TEXT</text><text x="545" y="485" class="brick-title">Native Unicode paste</text><text x="545" y="504" class="brick-body">NSPasteboard + a real HID Cmd+V.</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="827" y="435" width="292" height="82" rx="8" fill="#7c3aed"/>
+    <circle cx="861" cy="435" r="10" fill="#a78bfa"/><circle cx="929" cy="435" r="10" fill="#a78bfa"/><circle cx="997" cy="435" r="10" fill="#a78bfa"/><circle cx="1065" cy="435" r="10" fill="#a78bfa"/>
+    <text x="849" y="462" class="brick-kicker">VERIFY</text><text x="849" y="485" class="brick-title">See every outcome</text><text x="849" y="504" class="brick-body">Fresh frame + tap marker + visual diff.</text>
+  </g>
+
+  <path d="M821 520V540" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="641" y="545" width="360" height="35" rx="17" fill="#fff" stroke="#ef4444" stroke-width="2"/>
+  <text x="821" y="568" text-anchor="middle" fill="#b91c1c" font-size="15" font-weight="800">APPLE iPHONE MIRRORING</text>
+
+  <text x="56" y="608" fill="#64748b" font-size="14" font-weight="600">Our contribution: focused constraints and native primitives that make a small local VLM more reliable.</text>
+  <text x="1144" y="608" text-anchor="end" fill="#2563eb" font-size="14" font-weight="800">OBSERVE → ACT → VERIFY</text>
+</svg>
