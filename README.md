@@ -1,119 +1,78 @@
 # Pi iPhone Mirroring
 
-A self-contained [Pi](https://pi.dev) package that lets an image-capable model
-control Apple's **iPhone Mirroring** app through a deliberately small,
-vision-first tool surface.
+A [Pi](https://pi.dev) package that gives vision-capable models a small,
+reliable toolset for controlling Apple's **iPhone Mirroring** app.
 
-![Architecture](docs/architecture.png)
+![Capabilities added around a vision-capable LLM](docs/architecture.png)
 
-## What it provides
+## What it adds
 
-Six iPhone-only tools are exposed directly to Pi:
+- **iPhone-only scope** — no app-selection ambiguity.
+- **Predictable taps** — normalized 0–1000 coordinates with a visible grid and hard bounds.
+- **Small context** — only the latest screenshot is sent to providers that accept one image.
+- **Working native input** — Quartz HID taps and trackpad-style scrolling accepted by iPhone Mirroring.
+- **Unicode typing** — native `NSPasteboard` plus a real HID Command+V sequence.
+- **Verification** — every action returns a fresh screenshot so the model can see whether it worked.
 
-| Tool | Purpose |
-| --- | --- |
-| `see_iphone` | Capture a screenshot with a normalized coordinate grid. |
-| `tap_iphone` | Tap a point in normalized 0–1000 coordinates. |
-| `type_iphone` | Type focused text, including Unicode through native paste. |
-| `scroll_iphone` | Perform a continuous trackpad-style scroll gesture. |
-| `swipe_iphone` | Drag between two normalized points. |
-| `key_iphone` | Send keys and chords such as Return or Cmd+A. |
+The default tool surface stays intentionally small:
 
-The package also includes:
-
-- A Pi system-prompt extension that explains the coordinate and verification rules.
-- An image-window extension for providers such as BaseRT that accept only one image per request.
-- An embedded Python MCP server—no separate clone or `.mcp.json` is required.
-- Automatic post-action screenshots, tap markers, and visual-change reporting.
+```text
+see_iphone  tap_iphone  type_iphone
+scroll_iphone  swipe_iphone  key_iphone
+```
 
 ## Requirements
 
-- macOS with iPhone Mirroring available.
-- [Pi](https://pi.dev) installed.
-- [`uv`](https://docs.astral.sh/uv/) installed and on `PATH`.
-- Accessibility and Screen Recording permission granted to the terminal that runs Pi.
-- An image-capable model configured in Pi.
-
-The first launch uses `uv` to create the package-local Python environment from
-the committed lockfile.
+- macOS with iPhone Mirroring available
+- [Pi](https://pi.dev)
+- [`uv`](https://docs.astral.sh/uv/) on `PATH`
+- Accessibility and Screen Recording permission for the terminal running Pi
+- A Pi model with image input and tool use
 
 ## Install
-
-From GitHub:
 
 ```bash
 pi install git:github.com/aniruddha-adhikary/pi-iphone-mirroring
 ```
 
-For development from a local checkout:
-
-```bash
-pi install /absolute/path/to/pi-iphone-mirroring
-```
-
-Then start Pi normally and select an image-capable model:
+Start Pi and select an image-capable model:
 
 ```bash
 pi
 ```
 
-The MCP server starts eagerly, and the six tools appear directly in Pi. Use
-`/mcp status` if you need to inspect the connection.
+The package starts its embedded MCP server automatically. No separate server
+clone or `.mcp.json` is needed.
 
-## Using local Gemma through BaseRT
+## How coordinates work
 
-This package does not install a model or inference server. To reproduce the
-original setup, install the BaseRT Pi provider separately, start `basert serve`,
-and select:
-
-```text
-basert/basecompute/gemma-4-E4B-it
-```
-
-Any Pi model that supports image input and tool use can use the harness.
-
-## Coordinate model
-
-Coordinates are normalized independently on each axis:
+Every point is normalized independently on each axis:
 
 ```text
 (0, 0)                         (1000, 0)
    ┌───────────────────────────────┐
-   │                               │
    │          iPhone image         │
-   │                               │
    └───────────────────────────────┘
 (0, 1000)                    (1000, 1000)
 ```
 
-`see_iphone` draws a grid every 100 units. Actions recapture the current frame
-before mapping coordinates into the actual macOS window bounds.
+`see_iphone` draws grid lines every 100 units. The server maps the selected
+point into the current iPhone Mirroring window immediately before acting.
 
-## Native implementation
+## Under the hood
 
-- **Capture:** `macos-harness` window screenshots
-- **Tap:** physical cursor mapping plus Quartz HID mouse events
-- **Scroll:** continuous phased Quartz session-tap events
-- **Unicode:** native `NSPasteboard` plus a real HID Command+V sequence
-- **Transport:** MCP over stdio through `pi-mcp-adapter`
+- Pi extensions provide the model instructions and one-image context window.
+- `pi-mcp-adapter` exposes the six direct tools.
+- The embedded Python MCP server uses `macos-harness`, Pillow, Quartz/CoreGraphics,
+  and AppKit.
 
 There is no bridged iOS accessibility tree; observation is visual.
 
-## WeChat scrolling
-
-In a WeChat conversation:
-
-- Negative vertical amount moves toward older messages.
-- Positive vertical amount moves toward newer messages.
-- Anchor around `(500, 500)` on plain chat background.
-- Avoid anchoring on a message bubble.
-
 ## Safety
 
-This package can generate real mouse and keyboard input and runs with the full
-permissions of your Pi process. Review the source before installation. Keep a
-human in the loop for purchases, messages, deletion, authentication, and other
-high-impact actions.
+The package generates real mouse and keyboard input with the permissions of
+your Pi process. Keep a human in the loop for purchases, messages, deletion,
+authentication, and other consequential actions.
 
 ## Development
 
@@ -122,8 +81,7 @@ npm install
 npm test
 ```
 
-The editable Mermaid source is at [`docs/architecture.mmd`](docs/architecture.mmd).
+Architecture source: [`docs/architecture.svg`](docs/architecture.svg) and
+[`docs/architecture.mmd`](docs/architecture.mmd).
 
-## License
-
-MIT
+MIT licensed.

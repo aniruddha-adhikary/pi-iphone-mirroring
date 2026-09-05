@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Capabilities layered around a vision-capable LLM</title>
+  <desc id="desc">A vision-capable LLM is the central core, enclosed by Pi, with capability blocks physically plugged into the Pi layer.</desc>
+  <style>
+    text { font-family: Inter, "SF Pro Display", "Helvetica Neue", Arial, sans-serif; fill:#111827; }
+    .headline { font-size:34px; font-weight:780; letter-spacing:-.6px; }
+    .subtitle { font-size:17px; fill:#64748b; }
+    .cap { font-size:16px; font-weight:750; }
+    .tech { font-family:"SFMono-Regular", Menlo, monospace; font-size:11.5px; fill:#64748b; }
+    .tech-small { font-family:"SFMono-Regular", Menlo, monospace; font-size:10.5px; fill:#64748b; }
+    .loop { font-size:11px; font-weight:800; letter-spacing:1.2px; fill:#4c4c78; }
+    .inverse { fill:#fff; }
+    .inverse-muted { fill:#d8d8e8; }
+  </style>
+
+  <rect width="1200" height="630" fill="#fff"/>
+  <text x="60" y="53" class="headline">What we add around a vision-capable LLM</text>
+  <text x="60" y="81" class="subtitle">Each block solves a specific failure in visual iPhone control.</text>
+
+  <!-- Outer Pi field -->
+  <rect x="65" y="108" width="1070" height="454" rx="20" fill="#fafafa" stroke="#d1d5db" stroke-width="1.5"/>
+  <rect x="91" y="94" width="168" height="31" rx="7" fill="#303064"/>
+  <text x="175" y="115" text-anchor="middle" class="inverse" font-size="14" font-weight="800" letter-spacing="1.4">PI HARNESS</text>
+
+  <!-- Pi layer around Gemma -->
+  <rect x="430" y="211" width="340" height="224" rx="20" fill="#f0f0f7" stroke="#4c4c78" stroke-width="2.5"/>
+  <text x="600" y="235" text-anchor="middle" class="loop">OBSERVE</text>
+  <text x="600" y="421" text-anchor="middle" class="loop">ACT</text>
+  <text x="451" y="328" text-anchor="middle" class="loop" transform="rotate(-90 451 328)">VERIFY</text>
+  <text x="749" y="328" text-anchor="middle" class="loop" transform="rotate(90 749 328)">REASON</text>
+
+  <!-- Gemma core -->
+  <rect x="487" y="267" width="226" height="116" rx="13" fill="#303064"/>
+  <text x="600" y="310" text-anchor="middle" class="inverse" font-size="21" font-weight="800">Vision-capable LLM</text>
+  <text x="600" y="338" text-anchor="middle" class="inverse-muted" font-size="14">sees the screen · chooses actions</text>
+  <rect x="541" y="348" width="118" height="22" rx="11" fill="#fff" opacity=".12"/>
+  <text x="600" y="363" text-anchor="middle" class="inverse-muted" font-family="SFMono-Regular, Menlo, monospace" font-size="11.5">CAN RUN LOCALLY</text>
+
+  <!-- Top plug: context -->
+  <rect x="446" y="132" width="308" height="67" rx="9" fill="#fff" stroke="#6b7280" stroke-width="1.5"/>
+  <rect x="572" y="198" width="56" height="14" fill="#fff" stroke="#6b7280" stroke-width="1.5"/>
+  <line x1="573" y1="198" x2="627" y2="198" stroke="#fff" stroke-width="3"/>
+  <text x="600" y="160" text-anchor="middle" class="cap">Keep only the latest screen</text>
+  <rect x="500" y="172" width="31" height="18" rx="3" fill="#f3f4f6" stroke="#9ca3af"/><text x="515" y="185" text-anchor="middle" fill="#9ca3af" font-size="11">×</text>
+  <rect x="540" y="169" width="31" height="21" rx="3" fill="#fff" stroke="#303064" stroke-width="1.5"/><text x="555" y="184" text-anchor="middle" fill="#303064" font-size="10" font-weight="800">✓</text>
+  <text x="582" y="184" class="tech-small">1 image · fewer tokens</text>
+
+  <!-- Left plugs -->
+  <rect x="118" y="217" width="294" height="82" rx="9" fill="#fff" stroke="#6b7280" stroke-width="1.5"/>
+  <rect x="411" y="244" width="19" height="28" fill="#fff" stroke="#6b7280" stroke-width="1.5"/>
+  <line x1="411" y1="245" x2="411" y2="271" stroke="#fff" stroke-width="3"/>
+  <text x="140" y="250" class="cap">Only control the iPhone</text>
+  <text x="140" y="274" class="tech">prevents clicks in other apps</text>
+  <text x="140" y="290" class="tech">SEE · TAP · TYPE · SCROLL</text>
+
+  <rect x="118" y="323" width="294" height="82" rx="9" fill="#fff" stroke="#6b7280" stroke-width="1.5"/>
+  <rect x="411" y="350" width="19" height="28" fill="#fff" stroke="#6b7280" stroke-width="1.5"/>
+  <line x1="411" y1="351" x2="411" y2="377" stroke="#fff" stroke-width="3"/>
+  <text x="140" y="356" class="cap">Make taps predictable</text>
+  <text x="140" y="381" class="tech">grid target = (850, 150)</text>
+  <g stroke="#77779a" stroke-width="1" opacity=".8">
+    <rect x="329" y="339" width="57" height="48" rx="3" fill="#fafafa"/>
+    <path d="M348 339V387M367 339V387M329 355H386M329 371H386"/>
+  </g>
+  <circle cx="377" cy="347" r="4" fill="#303064"/>
+
+  <!-- Right plugs -->
+  <rect x="788" y="217" width="294" height="82" rx="9" fill="#fff" stroke="#6b7280" stroke-width="1.5"/>
+  <rect x="770" y="244" width="19" height="28" fill="#fff" stroke="#6b7280" stroke-width="1.5"/>
+  <line x1="788" y1="245" x2="788" y2="271" stroke="#fff" stroke-width="3"/>
+  <text x="810" y="250" class="cap">Give the model simple actions</text>
+  <rect x="808" y="260" width="250" height="23" rx="4" fill="#f3f4f6"/>
+  <text x="819" y="276" class="tech">tap_iphone  x:850  y:150</text>
+
+  <rect x="788" y="323" width="294" height="82" rx="9" fill="#fff" stroke="#6b7280" stroke-width="1.5"/>
+  <rect x="770" y="350" width="19" height="28" fill="#fff" stroke="#6b7280" stroke-width="1.5"/>
+  <line x1="788" y1="351" x2="788" y2="377" stroke="#fff" stroke-width="3"/>
+  <text x="810" y="356" class="cap">Make scrolling work</text>
+  <text x="810" y="379" class="tech">normal scroll events are ignored</text>
+  <text x="810" y="395" class="tech-small">send a complete touchpad gesture</text>
+
+  <!-- Bottom plugs -->
+  <rect x="275" y="462" width="292" height="68" rx="9" fill="#fff" stroke="#6b7280" stroke-width="1.5"/>
+  <rect x="500" y="435" width="48" height="28" fill="#fff" stroke="#6b7280" stroke-width="1.5"/>
+  <line x1="501" y1="462" x2="547" y2="462" stroke="#fff" stroke-width="3"/>
+  <text x="421" y="490" text-anchor="middle" class="cap">Verify every tap</text>
+  <text x="421" y="514" text-anchor="middle" class="tech-small">new screenshot shows if it worked</text>
+
+  <rect x="633" y="462" width="292" height="68" rx="9" fill="#fff" stroke="#6b7280" stroke-width="1.5"/>
+  <rect x="652" y="435" width="48" height="28" fill="#fff" stroke="#6b7280" stroke-width="1.5"/>
+  <line x1="653" y1="462" x2="699" y2="462" stroke="#fff" stroke-width="3"/>
+  <text x="779" y="490" text-anchor="middle" class="cap">Type exact non-English text</text>
+  <text x="779" y="516" text-anchor="middle" font-size="18" font-weight="750">炸鸡  ·  বাংলা  ✓</text>
+
+  <!-- Target base, no connector line -->
+  <rect x="456" y="547" width="288" height="43" rx="9" fill="#303064"/>
+  <rect x="532" y="531" width="48" height="17" fill="#303064"/>
+  <rect x="620" y="531" width="48" height="17" fill="#303064"/>
+  <text x="600" y="574" text-anchor="middle" class="inverse" font-size="15" font-weight="780">Apple iPhone Mirroring</text>
+
+  <text x="60" y="610" fill="#64748b" font-size="12.5">Small, specific fixes make the local model more reliable.</text>
+</svg>
