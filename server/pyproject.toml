@@ -1,0 +1,25 @@
+[project]
+name = "macos-mcp"
+version = "0.1.0"
+description = "Stateful MCP server to control macOS apps (and iPhone Mirroring) by vision on top of macos-harness"
+readme = "README.md"
+authors = [
+    { name = "Aniruddha Adhikary", email = "932949+aniruddha-adhikary@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "macos-harness",
+    "mcp>=2.1.1",
+    "pydantic>=2.0",
+    "pyobjc-framework-Vision>=12.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.9.26,<0.10.0"]
+build-backend = "uv_build"
+
+[tool.uv.sources]
+macos-harness = { git = "https://github.com/browser-use/macos-harness" }
+
+[project.scripts]
+macos-mcp = "macos_mcp.server:main"

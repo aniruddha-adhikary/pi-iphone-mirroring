@@ -1,0 +1,48 @@
+flowchart TB
+    USER["User request<br/><i>Search for fried chicken</i>"]
+
+    subgraph PI["Pi agent harness — Observe → Reason → Act → Verify"]
+        direction LR
+
+        IMAGE["Image Window extension<br/>Keeps the newest screenshot<br/>Prevents multi-image errors"]
+        GEMMA["Gemma 4 E4B<br/>Vision-language model<br/><i>served locally via BaseRT</i>"]
+        ADAPTER["pi-mcp-adapter<br/>Exposes MCP tools to Pi<br/>Returns results to the model"]
+
+        IMAGE -->|latest image| GEMMA
+        GEMMA -->|tool calls| ADAPTER
+    end
+
+    TOOLS["Simplified iPhone tools<br/>see · tap · type · scroll · swipe · key"]
+    MCP["iPhone-only MCP server<br/>Normalized 0–1000 coordinates<br/>Visual grid · action verification"]
+    IPHONE["Apple iPhone Mirroring<br/>Visual UI and remote input"]
+
+    subgraph NATIVE["Underlying native macOS technology"]
+        direction LR
+        CAPTURE["macos-harness<br/>Window screenshots"]
+        INPUT["Quartz / CoreGraphics<br/>HID and session event taps"]
+        UNICODE["NSPasteboard<br/>Unicode text via real HID Cmd+V"]
+    end
+
+    USER --> GEMMA
+    ADAPTER --> TOOLS
+    TOOLS --> MCP
+    MCP --> IPHONE
+    CAPTURE --> MCP
+    INPUT --> MCP
+    UNICODE --> MCP
+    IPHONE -. fresh screenshot / result .-> IMAGE
+
+    classDef model fill:#ede9fe,stroke:#7c3aed,stroke-width:3px,color:#111827;
+    classDef pi fill:#eff6ff,stroke:#2563eb,stroke-width:2px,color:#111827;
+    classDef extension fill:#ecfdf5,stroke:#10b981,stroke-width:2px,color:#111827;
+    classDef bridge fill:#fff7ed,stroke:#f59e0b,stroke-width:2px,color:#111827;
+    classDef system fill:#f8fafc,stroke:#64748b,stroke-width:2px,color:#111827;
+    classDef native fill:#f1f5f9,stroke:#94a3b8,color:#334155;
+
+    class GEMMA model;
+    class IMAGE extension;
+    class ADAPTER bridge;
+    class USER,TOOLS,MCP,IPHONE system;
+    class CAPTURE,INPUT,UNICODE native;
+    style PI fill:#eff6ff,stroke:#2563eb,stroke-width:3px
+    style NATIVE fill:#f8fafc,stroke:#64748b,stroke-width:2px

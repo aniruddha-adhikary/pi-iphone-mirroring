@@ -1,0 +1,55 @@
+{
+  "name": "pi-iphone-mirroring",
+  "version": "0.1.0",
+  "description": "Vision-first iPhone Mirroring control tools for the Pi coding agent",
+  "type": "module",
+  "license": "MIT",
+  "author": "Aniruddha Adhikary",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aniruddha-adhikary/pi-iphone-mirroring.git"
+  },
+  "keywords": [
+    "pi-package",
+    "pi",
+    "mcp",
+    "macos",
+    "iphone",
+    "iphone-mirroring",
+    "computer-use",
+    "vision-language-model"
+  ],
+  "files": [
+    "extensions",
+    "server/pyproject.toml",
+    "server/uv.lock",
+    "server/README.md",
+    "server/src/macos_mcp/__init__.py",
+    "server/src/macos_mcp/primitives.py",
+    "server/src/macos_mcp/server.py",
+    "server/src/macos_mcp/py.typed",
+    "docs",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "pi-mcp-adapter": "2.32.1"
+  },
+  "bundledDependencies": [
+    "pi-mcp-adapter"
+  ],
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*"
+  },
+  "pi": {
+    "extensions": [
+      "./extensions/image-window.ts",
+      "./extensions/iphone-mirroring.ts"
+    ],
+    "image": "https://raw.githubusercontent.com/aniruddha-adhikary/pi-iphone-mirroring/main/docs/architecture.png"
+  },
+  "scripts": {
+    "check": "node scripts/check.mjs",
+    "test": "npm run check"
+  }
+}
